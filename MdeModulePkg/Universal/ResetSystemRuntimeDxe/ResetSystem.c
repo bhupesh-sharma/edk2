@@ -255,6 +255,13 @@ ResetSystem (
   LIST_ENTRY          *Link;
   RESET_NOTIFY_ENTRY  *Entry;
 
+#if 1
+  DEBUG ((DEBUG_ERROR, "BHUPESH ResetSystem - Trigger illegal access at Reserved region\n"));
+  unsigned long *reserved_addr = (unsigned long *)0x000000007e924100;
+	  //0x000000007fef4010;
+  *reserved_addr = 10;
+#endif
+
   //
   // Only do REPORT_STATUS_CODE() on first call to ResetSystem()
   //
